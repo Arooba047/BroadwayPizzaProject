@@ -1,0 +1,75 @@
+
+{% extends "base.html" %}
+
+
+{% block content %}
+
+            <!-- Table Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h6 class="mb-4">User Table</h6>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Username</th>
+                                        <th scope="col">E-mail</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for user in user %}
+                                        {% if not user.is_staff %}
+                                            <tr>
+                                                <th scope="row">{{ forloop.counter }}</th>  
+                                                <td>{{ user.username }}</td>
+                                                <td>{{ user.email }}</td>
+                                            </tr>
+                                        {% endif %}
+                                    {% endfor %}
+                                   
+                                
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h6 class="mb-4">Admin Table</h6>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Username</th>
+                                        <th scope="col">E-mail</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for user in user %}
+                                        {% if user.is_staff %}
+                                            <tr>
+                                                <th scope="row">{{ forloop.counter }}</th>  
+                                                <td>{{ user.username }}</td>
+                                                <td>{{ user.email }}</td>
+                                            </tr>
+                                        {% endif %}
+                                    {% endfor %}
+                                   
+                                
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Table End -->
+
+
+ 
+
+{% endblock  %}
+

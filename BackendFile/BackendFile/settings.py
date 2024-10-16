@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework_simplejwt.token_blacklist',
     'BackendApp',
+    'dashboard',
+    
 ]
 
 MIDDLEWARE = [
@@ -85,7 +87,7 @@ ROOT_URLCONF = 'BackendFile.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'dashboard' / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -151,9 +153,10 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR,  'static', 'build', 'static'),  # React static files
-# ]
+# STATICFILES_DIRS = [BASE_DIR / 'dashboard' / 'static']
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR , 'dashboard' , 'static'),  
+]
 
 # MEDIA_URL = '/media/'
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -169,3 +172,11 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+ #admin panel auth
+
+# LOGIN_URL = '/admin/login'
+
+# LOGIN_REDIRECT_URL = '/dashboard'
+# LOGOUT_REDIRECT_URL = '/admin/login'
