@@ -5,6 +5,7 @@ urlpatterns = [
     path('', views.dashboard, name='dashboard'),
     path('table/', views.table, name='table'),
     path('forms/', views.create_menu_item, name='form'),
+    path('update/<int:id>', views.update, name='update'),
     path('delete/<int:id>/', views.delete, name='delete'),
     path('charts/', views.charts, name='charts'),
     path('widgets/', views.widgets, name='widgets'),

@@ -47,7 +47,7 @@
                                                 <td>{{ i.menu_price }}</td>
                                                 <td><img src="{{ i.menu_image_url }}" alt="menu_img" style="height: 40px; width: 40px"></td>
                                                 {% comment %} Update {% endcomment %}
-                                                <td><button type= "submit"class="btn btn-warning">Update</button>
+                                                <td><button type= "submit"class="btn btn-warning"><a href="{% url 'update' i.menu_id %}" style="color: #fff">Update</a></button>
                                                 </td>
                                                 {% comment %} Delete {% endcomment %}
                                                 <td><form action="{% url 'delete' i.menu_id %}" method="post" >

@@ -53,6 +53,22 @@ def delete(request, id):
     a.delete()
     return redirect('form')
 
+# Update Menu
+def update(request, id):
+    if request.method == 'POST':
+        data = MenuItem.objects.get(pk=id)
+        form = MenuItemForm(request.POST,instance=data)
+        if form.is_valid():
+            form.save()
+            return redirect('form')
+    else:
+        data = MenuItem.objects.get(pk=id)
+        form = MenuItemForm(instance=data)
+    context={
+        'form': form,
+    }
+    return render(request, 'update.html', context)
+
 
 
 
