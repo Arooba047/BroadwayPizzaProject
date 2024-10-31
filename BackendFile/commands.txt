@@ -1,0 +1,20 @@
+important Django commands
+first create a virtual environment
+python -m venv .venv
+Set-ExecutionPolicy Unrestricted -Scope Process
+	.venv\Scripts\activate
+pip install django
+
+create a django project
+
+create a react app
+
+installing packages for django
+pip install djangorestframework django-cors-headers
+
+installing packages for react (axious)
+npm install axios
+
+Build the API Endpoints in Django, To make this i create a django app which return JSON file when we make HTTP request 
+
+python manage.py startapp djangoapp

@@ -26,6 +26,7 @@ def table(request):
 
 
 # Create and Read Menu
+@login_required
 def create_menu_item(request):
     form = MenuItemForm()
     if request.method == 'POST':
@@ -46,12 +47,14 @@ def create_menu_item(request):
 
 
 # Delete Menu
+@login_required
 def delete(request, id):
     a= MenuItem.objects.get(pk=id)
     a.delete()
     return redirect('form')
 
 # Update Menu
+@login_required
 def update(request, id):
     if request.method == 'POST':
         data = MenuItem.objects.get(pk=id)
@@ -92,3 +95,4 @@ class MenuItemDisplay(APIView):
 
 
 
+ 
