@@ -11,6 +11,7 @@ from rest_framework import viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.http import JsonResponse
+from django.core.mail import send_mail
 
 @login_required
 def dashboard(request):

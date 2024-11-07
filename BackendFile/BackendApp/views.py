@@ -12,7 +12,7 @@ from rest_framework import generics, permissions
 from .serializers import CartItemSerializer
 # from django.http import JsonResponse, HttpResponseForbidden
 # from django.views.decorators.http import require_http_methods
-
+from django.core.mail import send_mail
 
 #Login and register views
 
@@ -34,6 +34,11 @@ class RegisterView(APIView):
             email=email,
             password=make_password(password)  
         )
+        subject = 'Registration Successfull'
+        message = f'Hi {email}, You have sucessfully registered in broadway pizza website.'
+        email_from = 'aroobaiqbal118@gmail.com'
+        rec_list = [email,]
+        send_mail(subject, message, email_from, rec_list)
 
         # Generate JWT tokens
         refresh = RefreshToken.for_user(user)
@@ -43,6 +48,8 @@ class RegisterView(APIView):
             'access': str(refresh.access_token),
             'user_id': user.id
         }, status=status.HTTP_201_CREATED)
+        subject = 'Registration Successfull'
+
 
 
 class LoginView(APIView):
